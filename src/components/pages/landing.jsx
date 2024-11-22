@@ -21,8 +21,9 @@ export default function Home() {
                 IN LIFE INTO A PORTRAIT
               </h1>
               <p className="text-gray-400 text-sm sm:text-base mx-auto max-w-2xl">
-                Preserve Your Precious Moments with Stunning Portraits at Our
-                Photography Studio. Never miss any moments in your life again
+                The premier marketplace for video and image designers to
+                showcase and share their exceptional creations, connecting with
+                a global audience of discerning clients.
               </p>
 
               <div className="relative">

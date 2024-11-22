@@ -30,7 +30,7 @@ export default function Navbar() {
                 <circle cx="12" cy="12" r="4" />
               </svg>
               <span className="hidden font-bold text-white sm:inline-block">
-                Contentium
+                Namaste Sodi
               </span>
             </Link>
           </div>
