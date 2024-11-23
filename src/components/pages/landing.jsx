@@ -3,6 +3,86 @@ import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
 import Intro from "@/assets/intro.mp4";
 import "@/components/styles/landing.css";
+import AvatarCircles from "@/components/ui/avatar-circles";
+import { Box, ImageList, ImageListItem } from "@mui/material";
+
+const avatars = [
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/16860528",
+    profileUrl: "https://github.com/dillionverma",
+  },
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/20110627",
+    profileUrl: "https://github.com/tomonarifeehan",
+  },
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/106103625",
+    profileUrl: "https://github.com/BankkRoll",
+  },
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/59228569",
+    profileUrl: "https://github.com/safethecode",
+  },
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/59442788",
+    profileUrl: "https://github.com/sanjay-mali",
+  },
+  {
+    imageUrl: "https://avatars.githubusercontent.com/u/89768406",
+    profileUrl: "https://github.com/itsarghyadas",
+  },
+];
+
+const itemData = [
+  {
+    img: 'https://images.unsplash.com/photo-1549388604-817d15aa0110',
+    title: 'Bed',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1525097487452-6278ff080c31',
+    title: 'Books',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6',
+    title: 'Sink',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3',
+    title: 'Kitchen',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1588436706487-9d55d73a39e3',
+    title: 'Blinds',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1574180045827-681f8a1a9622',
+    title: 'Chairs',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1530731141654-5993c3016c77',
+    title: 'Laptop',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61',
+    title: 'Doors',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7',
+    title: 'Coffee',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee',
+    title: 'Storage',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62',
+    title: 'Candle',
+  },
+  {
+    img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4',
+    title: 'Coffee table',
+  },
+];
 
 export default function Home() {
   return (
@@ -13,17 +93,22 @@ export default function Home() {
 
       <main className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
         <div className="relative">
-          <div className="space-y-8 max-w-3xl mx-auto">
+          <div className="space-y-8 max-w-5xl mx-auto">
+            <div className="flex justify-center">
+              <AvatarCircles
+                numPeople={99}
+                avatarUrls={avatars}
+              />
+            </div>
             <div className="space-y-4 md:space-y-6 text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                CAPTURE YOUR
-                <span className="block text-pink-300">Namaste Sodi</span>
-                IN LIFE INTO A PORTRAIT
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-satoshi leading-tight">
+                The <span className="text-pink-300 italic kaushan-script-regular">Marketplace</span> of
+                High-Quality Digital Creations and Design Services
               </h1>
               <p className="text-gray-400 text-sm sm:text-base mx-auto max-w-2xl">
-                The premier marketplace for video and image designers to
-                showcase and share their exceptional creations, connecting with
-                a global audience of discerning clients.
+                From custom edits to inspired designs, discover a platform where
+                creativity knows no bounds, turning your ideas into
+                extraordinary digital creations.
               </p>
 
               <div className="relative">
@@ -58,26 +143,61 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-12 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                Intro
+            <div className="mt-12 text-left">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl mb-4  text-pink-300 font-MagilioRegular">
+                Our Mission
               </h2>
-              <p className="text-gray-300 text-sm sm:text-base mb-6 max-w-2xl mx-auto">
-                Welcome to our creative hub where talented creators collaborate
-                to bring your vision to life. Our platform is a melting pot of
-                skilled professionals in video and image editing, photography,
-                and digital artistry. Together, we craft stunning visuals that
-                capture the essence of your story.
+              <p className="text-[#d4d4d8] text-lg sm:text-xl md:text-2xl mb-6 max-w-8xl leading-relaxed Neue">
+                We are dedicated to <span className="text-white font-medium	">inspiring</span> and <span className="text-white font-medium	">connecting</span> creators with those
+                in search of exceptional digital artistry. By providing a
+                <span className="text-white font-medium	"> dynamic platform</span> where <span className="text-white font-medium	">creativity knows no bounds</span>, we empower
+                artists to bring unique ideas to life through <span className="text-white font-medium	">impactful</span>,
+                <span className="text-white font-medium	"> one-of-a-kind designs</span>. Our mission is to foster a community where
+                <span className="text-white font-medium	"> innovation</span> and <span className="text-white font-medium	">collaboration</span> thrive, enabling artists to
+                <span className="text-white font-medium	"> showcase</span> their talents and reach a global audience. We believe in the power of
+                <span className="text-white font-medium	"> artistic expression</span> to transform ideas into reality, and we are committed to
+                supporting creators in their journey to <span className="text-white font-medium	">achieve excellence</span> and make a lasting impact.
               </p>
-              <p className="text-pink-300 text-lg font-semibold">
-                Explore our gallery below to see some of our finest work.
-              </p>
+            </div>
+
+            <div className="mt-12 text-center">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl mb-4 font-satoshi text-pink-300">
+                Some of our works
+              </h2>
+              <Box sx={{ width: '100%', height: 450, overflowY: 'scroll' }}>
+                <ImageList variant="masonry" cols={3} gap={8}>
+                  {itemData.map((item) => (
+                    <ImageListItem key={item.img}>
+                      <img
+                        srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                        src={`${item.img}?w=248&fit=crop&auto=format`}
+                        alt={item.title}
+                        loading="lazy"
+                      />
+                    </ImageListItem>
+                  ))}
+                </ImageList>
+              </Box>
             </div>
           </div>
         </div>
       </main>
 
-      <footer className=" py-2 sm:py-3 overflow-hidden whitespace-nowrap"></footer>
+      <footer className="bg-pink-300 py-2 sm:py-3 overflow-hidden whitespace-nowrap">
+        <div className="animate-marquee inline-block">
+          {[...Array(3)].map((_, i) => (
+            <span
+              key={i}
+              className="mx-2 sm:mx-4 inline-flex items-center text-xs sm:text-sm md:text-base"
+            >
+              hyejin@photos.studio
+              <span className="mx-1 sm:mx-2" aria-hidden="true">
+                📧
+              </span>
+            </span>
+          ))}
+        </div>
+      </footer>
     </div>
   );
 }
