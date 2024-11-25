@@ -1,24 +1,12 @@
-"use client";
-
-import React, { useEffect } from "react";
+import React from "react";
 import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
 import Intro from "@/assets/intro.mp4";
 import "@/components/styles/landing.css";
 import AvatarCircles from "@/components/ui/avatar-circles";
-import { Box, ImageList, ImageListItem } from "@mui/material";
-import { useState } from "react";
-import Image1 from "@/assets/image1.jpeg";
-import Image2 from "@/assets/image2.jpeg";
-import Image3 from "@/assets/image3.jpeg";
-import Image4 from "@/assets/image4.jpeg";
-import Image5 from "@/assets/image5.jpeg";
-import Image6 from "@/assets/image6.jpeg";
-import Image7 from "@/assets/image7.jpeg";
-import Image8 from "@/assets/image8.jpeg";
-import Image9 from "@/assets/image9.jpeg";
-import Image10 from "@/assets/image10.jpeg";
 import { ArrowRight } from "lucide-react";
+import ImageGrid from "@/components/ImageGrid";
+import ImageBackground from "@/assets/bg-contact.jpg";
 
 const avatars = [
   {
@@ -47,84 +35,14 @@ const avatars = [
   },
 ];
 
-const images = [
-  {
-    src: Image1,
-    alt: "White pillow with plant decoration",
-    className: "col-span-1 row-span-2",
-  },
-  {
-    src: Image2,
-    alt: "Numbered cups on windowsill",
-    className: "col-span-1 row-span-1",
-  },
-  {
-    src: Image4,
-    alt: "Coffee in clear glass",
-    className: "col-span-1 row-span-2",
-  },
-  {
-    src: Image3,
-    alt: "Books against white door",
-    className: "col-span-1 row-span-1",
-  },
-  {
-    src: Image5,
-    alt: "Modern chairs with polka dot cushions",
-    className: "col-span-2 row-span-2",
-  },
-  {
-    src: Image6,
-    alt: "White mudroom storage",
-    className: "col-span-1 row-span-1",
-  },
-  {
-    src: Image10,
-    alt: "White mudroom storage",
-    className: "col-span-1 row-span-1",
-  },
-  {
-    src: Image7,
-    alt: "Cozy sofa scene",
-    className: "col-span-2 row-span-2",
-  },
-  {
-    src: Image8,
-    alt: "Candle in amber jar",
-    className: "col-span-1 row-span-1",
-  },
-  {
-    src: Image9,
-    alt: "Minimalist interior",
-    className: "col-span-1 row-span-1",
-  },
-];
-
 export default function Home() {
-  const [loading, setLoading] = useState(images.map(() => true));
-
-  useEffect(() => {
-    images.forEach((_, index) => {
-      const randomDelay = Math.random() * 2000; // Delay i mean for blur effect
-      setTimeout(() => handleImageLoad(index), randomDelay);
-    });
-  }, []);
-
-  const handleImageLoad = (index) => {
-    setLoading((prevLoading) => {
-      const newLoading = [...prevLoading];
-      newLoading[index] = false;
-      return newLoading;
-    });
-  };
-
   return (
     <div className="min-h-screen bg-black text-white">
       <header>
         <Navbar />
       </header>
 
-      <main className="container mx-auto px-4 py-8 md:py-12 lg:py-16">
+      <main className="container mx-auto px-4 py-8">
         <div className="relative">
           <div className="space-y-8 max-w-5xl mx-auto">
             <div className="flex justify-center">
@@ -237,54 +155,52 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-12 text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 font-MagilioRegular text-[#869F77]">
+            <div className="mt-12 text-right">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4 font-MagilioRegular text-pink-300">
+                {/* text-[#869F77] */}
                 Our Edited Masterpieces
               </h2>
 
-              <div className="container mx-auto">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 auto-rows-[200px]">
-                  {images.map((image, index) => (
-                    <div
-                      key={index}
-                      className={`relative overflow-hidden rounded-md bg-muted ${image.className}`}
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className={`object-cover transition-all duration-300 ease-in-out ${
-                          loading[index]
-                            ? "blur-lg grayscale"
-                            : "blur-0 grayscale-0"
-                        }`}
-                        onLoad={() => handleImageLoad(index)}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <ImageGrid />
             </div>
           </div>
         </div>
       </main>
 
       <div className="flex items-center justify-center p-4">
-        <div className="max-w-5xl w-full">
-          <div className="text-center mb-12 bg-[#1D1D1D] rounded-2xl p-8">
-            <h2 className="text-white text-3xl md:text-4xl font-serif mb-4">
+        <div className="max-w-5xl w-full relative">
+          <img
+            src={ImageBackground}
+            alt="Backgrond"
+            className="rounded-2xl w-full h-64 object-cover"
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-black bg-opacity-50 rounded-2xl">
+            <h2 className="text-white text-[18.5px] md:text-4xl font-serif mb-4">
               Your perfect design is just a click away
             </h2>
-            <p className="text-gray-300 text-lg mb-6">
+            <p className="text-gray-300 text-[12px] mb-6">
               Contact a designer now and bring your vision to life!
             </p>
-            <button className="bg-pink-200 text-black py-3 px-6 rounded-full font-semibold flex items-center justify-center mx-auto hover:bg-gray-200 transition-colors">
-              Contact Designer
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
+            <a
+              href="https://wa.me/8967450927"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-gradient-to-r from-[#FF7EB3] to-[#FFA45B] text-black py-3 px-8 rounded-full font-semibold flex items-center justify-center mx-auto transition-all duration-300 shadow-lg hover:shadow-[0_4px_15px_rgba(255,130,90,0.4)] group">
+                Contact Designer
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </button>
+            </a>
           </div>
         </div>
       </div>
+      <footer className=" text-gray-300 py-5  font-satoshi">
+        <div className="container mx-auto text-center">
+          <p className="text-sm ">
+            © 2024 Connecting creative talent with endless possibilities ❤️
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
