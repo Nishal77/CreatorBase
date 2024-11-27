@@ -10,8 +10,8 @@ Installation
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/Nishal77/CreatorBase.git
+   cd CreatorBase
 
 2. Add a .env.local file in the root directory with the following environment variables
    ```bash
