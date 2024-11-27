@@ -24,8 +24,7 @@ Installation
 
 Running the Project
 To start the project locally, use:
-
-bash
-Copy code
-npm run dev
+   ```bash
+  npm run dev
+  
 This will launch the development server. You can view the application in your browser at http://localhost:5173.
