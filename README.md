@@ -1,8 +1,30 @@
-# React + Vite
+Setup Instructions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prerequisites
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [npm](https://www.npmjs.com/)
+- [MongoDB](https://cloud.mongodb.com/)
 
-Currently, two official plugins are available:
+Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Nishal77/CreatorBase.git
+   cd CreatorBase
+
+2. Add a .env.local file in the root directory with the following environment variables
+   ```bash
+   CLERK_API_KEY=<your-clerk-api-key>
+   MONGODB_CLUSTER_URL=<your-mongodb-cluster-url>
+
+3. Install the project dependencies:
+    ```bash
+   npm install
+
+Running the Project
+To start the project locally, use:
+   ```bash
+  npm run dev
+  
+This will launch the development server. You can view the application in your browser at http://localhost:5173.
