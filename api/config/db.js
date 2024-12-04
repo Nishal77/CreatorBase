@@ -1,12 +1,9 @@
+// api/config/db.js
 import mongoose from "mongoose";
 
-const connectDB = async (mongoUri) => {
+const connectDB = async () => {
   try {
-    console.log("Connecting to MongoDB with URI:", mongoUri); // Debugging log
-    if (!mongoUri) {
-      throw new Error("MONGO_URI is not defined");
-    }
-    await mongoose.connect(mongoUri, {
+    await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

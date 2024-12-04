@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -73,13 +81,23 @@ export default function Navbar() {
           </nav>
 
           <div className="ml-auto hidden md:flex items-center space-x-4">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button
+                  variant="outline"
+                  className="h-8 rounded-md bg-zinc-800 text-white border-zinc-700 hover:bg-zinc-700 hover:text-white"
+                >
+                  Login
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
             <Button
-              variant="outline"
-              className="h-8 rounded-md bg-zinc-800 text-white border-zinc-700 hover:bg-zinc-700 hover:text-white"
+              onClick={() => navigate("/creator")}
+              className="h-8 rounded-md bg-zinc-100 text-black hover:bg-white"
             >
-              Login
-            </Button>
-            <Button className="h-8 rounded-md bg-zinc-100 text-black hover:bg-white">
               Creator Hub
             </Button>
           </div>
@@ -143,13 +161,20 @@ export default function Navbar() {
                 </Link>
               </li>
               <li>
-                <Button
-                  variant="outline"
-                  className="h-8 rounded-md bg-zinc-800 text-white border-zinc-700 hover:bg-zinc-700 hover:text-white"
-                  onClick={toggleMenu}
-                >
-                  Login
-                </Button>
+                <SignedOut>
+                  <SignInButton mode="modal">
+                    <Button
+                      variant="outline"
+                      className="h-8 rounded-md bg-zinc-800 text-white border-zinc-700 hover:bg-zinc-700 hover:text-white"
+                      onClick={toggleMenu}
+                    >
+                      Login
+                    </Button>
+                  </SignInButton>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
               </li>
               <li>
                 <Button

@@ -1,22 +1,15 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
-import TransactionDetails from "../components/TransactionDetails";
-import { Button } from "@/components/ui/button";
+import { WalletDashboard } from "../components/wallet-dashboard";
+import { Header } from "../components/Layout";
+import { Sidebar } from "../components/Sidebar";
 
-const CreatorPage = () => {
+export default function DashboardPage() {
   return (
-    <div className="flex flex-col h-screen">
-      <Navbar />
-      <div className="flex flex-grow">
-        <Sidebar />
-        <main className="flex-grow bg-gray-100 p-6 items-center justify-center flex">
-          <Button> Hello main</Button>
-        </main>
-        <TransactionDetails />
+    <div className="flex min-h-screen ">
+      <Sidebar className="hidden lg:block" />
+      <div className="flex-1 ml-72">
+        <Header />
+        <WalletDashboard />
       </div>
     </div>
   );
-};
-
-export default CreatorPage;
+}

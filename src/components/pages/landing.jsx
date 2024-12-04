@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Intro from "@/assets/intro.mp4";
 import "@/components/styles/landing.css";
 import AvatarCircles from "@/components/ui/avatar-circles";
@@ -36,6 +36,7 @@ const avatars = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-black text-white">
       <header>
@@ -83,9 +84,11 @@ export default function Home() {
                 <div className="relative flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
                   <Link
                     to="#"
-                    className="relative  rounded-2xl bg-[#FF6F61] text-black px-8 py-3 text-lg font-semibold hover:bg-[#FF5722] transition"
+                    onClick={() => navigate('/sign-in')}
+                    className="relative flex items-center justify-center mx-auto  rounded-2xl bg-gradient-to-r from-[#FF7EB3] to-[#FFA45B] text-black px-8 py-3 text-lg font-semibold hover:bg-[#FF5722] transition group"
                   >
                     Get started now
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
 
